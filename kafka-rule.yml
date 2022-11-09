@@ -10,6 +10,6 @@
 
   rules:
     - name: triage issue
-      condition: event.speedAvg is defined
+      condition: event is defined
       action:
         debug:
