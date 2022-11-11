@@ -10,6 +10,6 @@
 
   rules:
     - name: debug event
-      condition: event is defined
+      condition: event.speedAvg is defined
       action:
         debug:
