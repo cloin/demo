@@ -1,0 +1,18 @@
+---
+- name: fuelAvg events
+  hosts: localhost
+  sources:
+    - ansible.eda.kafka:
+        host: bobbycar-cluster-kafka-bootstrap
+        port: 9092
+        topic: bobbycar-speed-alert
+        group_id:
+
+  rules:
+    - name: Low fuel average
+      condition: 
+        all:
+          - event.fuelAvg is defined
+          - event.fuelAvg < 5
+      action:
+        debug:
